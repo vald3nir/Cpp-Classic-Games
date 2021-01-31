@@ -1,6 +1,6 @@
 # Games with C++
 
-Example of some games made with C++
+Class games in C++
 
 ## Install SFML 2.5.1
 
