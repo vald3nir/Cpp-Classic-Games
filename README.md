@@ -3,17 +3,15 @@
 - Arkanoid
 - Asteroids
 - Bejeweled
-- Doodle Jump
+- Doodle_Jump
 - Fifteen
-- Mahjong Solitaire
+- Mahjong_Solitaire
 - Minesweeper
 - NetWalk
 - Outrun
-- Racing 
+- Racing
 - Snake
 - Tetris
-- Tron
-- Xonix
 
 ## Install SFML 2.5.1
 
@@ -36,14 +34,14 @@
     
 ### Example Makefile
 
-    cmake_minimum_required(VERSION 3.13)
-    project(SFMLApp)
+    cmake_minimum_required(VERSION 3.17)
+    project(GAME)
 
     set(CMAKE_CXX_STANDARD 14)
 
-    set(SFML_INCLUDE_DIR "/home/rewieer/Libraries/SFML-2.5.1/include")
-    set(SFML_LIBRARY_DIR "/home/rewieer/Libraries/SFML-2.5.1/lib")
-    set(SFML_DIR "/home/rewieer/Libraries/SFML-2.5.1/lib/cmake/SFML")
+    set(SFML_INCLUDE_DIR "/home/vald3nir/Documentos/SFML-2.5.1/include")
+    set(SFML_LIBRARY_DIR "/home/vald3nir/Documentos/SFML-2.5.1/lib")
+    set(SFML_DIR "/home/vald3nir/Documentos/SFML-2.5.1/lib/cmake/SFML")
 
     link_directories(SFML_LIBRARY_DIR)
     include_directories(SFML_INCLUDE_DIR)
@@ -56,8 +54,8 @@
         message(STATUS "SFML_VERSION: ${SFML_VERSION}")
     endif()
 
-    add_executable(SFMLApp main.cpp)
-    target_link_libraries (SFMLApp sfml-graphics sfml-window sfml-system)
+    add_executable(GAME main.cpp)
+    target_link_libraries (GAME sfml-graphics sfml-window sfml-system)
     
  ### Test Library
  

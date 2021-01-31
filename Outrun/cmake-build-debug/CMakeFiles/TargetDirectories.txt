@@ -1,0 +1,3 @@
+/home/vald3nir/Documentos/Projetos/C/Games-C/Outrun/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/vald3nir/Documentos/Projetos/C/Games-C/Outrun/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/vald3nir/Documentos/Projetos/C/Games-C/Outrun/cmake-build-debug/CMakeFiles/GAME.dir
