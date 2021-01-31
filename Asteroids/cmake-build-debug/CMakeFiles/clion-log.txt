@@ -1,0 +1,8 @@
+/snap/clion/139/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/vald3nir/Documentos/Projetos/C/Games-C/Asteroids
+-- Found SFML 2.5.1 in /home/vald3nir/Documentos/SFML-2.5.1/lib/cmake/SFML
+-- SFML_INCLUDE_DIR: /home/vald3nir/Documentos/SFML-2.5.1/include
+-- SFML_LIBRARIES: 
+-- SFML_VERSION: 2.5.1
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vald3nir/Documentos/Projetos/C/Games-C/Asteroids/cmake-build-debug
