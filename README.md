@@ -3,7 +3,6 @@
 - Arkanoid
 - Asteroids
 - Bejeweled
-- Chess
 - Doodle Jump
 - Fifteen
 - Mahjong Solitaire
@@ -14,7 +13,6 @@
 - Snake
 - Tetris
 - Tron
-- Volleyball
 - Xonix
 
 ## Install SFML 2.5.1
