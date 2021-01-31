@@ -1,6 +1,21 @@
-# Games with C++
+# Class games in C++
 
-Class games in C++
+- Arkanoid
+- Asteroids
+- Bejeweled
+- Chess
+- Doodle Jump
+- Fifteen
+- Mahjong Solitaire
+- Minesweeper
+- NetWalk
+- Outrun
+- Racing 
+- Snake
+- Tetris
+- Tron
+- Volleyball
+- Xonix
 
 ## Install SFML 2.5.1
 
@@ -46,7 +61,7 @@ Class games in C++
     add_executable(SFMLApp main.cpp)
     target_link_libraries (SFMLApp sfml-graphics sfml-window sfml-system)
     
- ### Demo
+ ### Test Library
  
     #include <SFML/Graphics.hpp>
 
