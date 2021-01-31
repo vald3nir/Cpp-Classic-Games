@@ -1,4 +1,4 @@
-# Class games in C++
+# Class Games in C++
 
 - Arkanoid
 - Asteroids
