@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(tetris)
+project(Tetris)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -18,5 +18,5 @@ if(SFML_FOUND)
     message(STATUS "SFML_VERSION: ${SFML_VERSION}")
 endif()
 
-add_executable(tetris main.cpp)
-target_link_libraries (tetris sfml-graphics sfml-window sfml-system)
+add_executable(Tetris main.cpp)
+target_link_libraries (Tetris sfml-graphics sfml-window sfml-system)
