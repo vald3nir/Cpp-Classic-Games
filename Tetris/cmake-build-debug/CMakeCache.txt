@@ -156,7 +156,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=tetris
+CMAKE_PROJECT_NAME:STATIC=GAME
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -220,6 +220,12 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Value Computed by CMake
+GAME_BINARY_DIR:STATIC=/home/vald3nir/Documentos/Projetos/C/Games-C/Tetris/cmake-build-debug
+
+//Value Computed by CMake
+GAME_SOURCE_DIR:STATIC=/home/vald3nir/Documentos/Projetos/C/Games-C/Tetris
+
 //Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
 
@@ -228,6 +234,12 @@ ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 
 //Path to a file.
 SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
+
+//Value Computed by CMake
+Tetris_BINARY_DIR:STATIC=/home/vald3nir/Documentos/Projetos/C/Games-C/Tetris/cmake-build-debug
+
+//Value Computed by CMake
+Tetris_SOURCE_DIR:STATIC=/home/vald3nir/Documentos/Projetos/C/Games-C/Tetris
 
 //Value Computed by CMake
 tetris_BINARY_DIR:STATIC=/home/vald3nir/Documentos/Projetos/C/Games-C/Tetris/cmake-build-debug
