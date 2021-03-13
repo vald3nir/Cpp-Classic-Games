@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/vald3nir/Documentos/Projetos/C/Games-C/Doodle_Jump/main.cpp" "/home/vald3nir/Documentos/Projetos/C/Games-C/Doodle_Jump/cmake-build-debug/CMakeFiles/Doodle_Jump.dir/main.cpp.o"
+  "/../Projetos/C/Games-C/Doodle_Jump/main.cpp" "/../Projetos/C/Games-C/Doodle_Jump/cmake-build-debug/CMakeFiles/Doodle_Jump.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/vald3nir/Documentos/Projetos/C/Games-C/Asteroids
+# Install script for directory: /home/vald3nir/Documentos/Projetos/C/Classic-Games-C-Plus-Plus/Asteroids
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/vald3nir/Documentos/Projetos/C/Games-C/Asteroids/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/vald3nir/Documentos/Projetos/C/Classic-Games-C-Plus-Plus/Asteroids/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

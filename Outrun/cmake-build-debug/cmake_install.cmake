@@ -1,4 +1,4 @@
-# Install script for directory: /home/vald3nir/Documentos/Projetos/C/Games-C/Outrun
+# Install script for directory: /../Projetos/C/Games-C/Outrun
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/vald3nir/Documentos/Projetos/C/Games-C/Outrun/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/../Projetos/C/Games-C/Outrun/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

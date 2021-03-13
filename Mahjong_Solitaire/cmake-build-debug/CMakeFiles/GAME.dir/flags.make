@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/vald3nir/Documentos/Projetos/C/Games-C/Mahjong_Solitaire/SFML_INCLUDE_DIR -isystem /home/vald3nir/Documentos/SFML-2.5.1/include 
+CXX_INCLUDES = -I/../Projetos/C/Games-C/Mahjong_Solitaire/SFML_INCLUDE_DIR -isystem ../SFML-2.5.1/include 
 
