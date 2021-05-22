@@ -6,10 +6,10 @@
 #include <list>
 #include <math.h>
 
-class AsteroidsGame : public Game {
+class AsteroidsGame : public Game
+{
 
     void play() override;
-
 };
 
 #endif

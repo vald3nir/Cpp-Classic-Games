@@ -3,7 +3,8 @@
 
 #include "Game.h"
 
-class Tetris : public Game {
+class Tetris : public Game
+{
 
 public:
     void play() override;

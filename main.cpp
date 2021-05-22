@@ -1,12 +1,16 @@
 #include "games/Racing.h"
 #include "menu/Menu.h"
 
-
-void playGame(Game *g) {
-    if (g) { g->play(); }
+void playGame(Game *g)
+{
+    if (g)
+    {
+        g->play();
+    }
 }
 
-int main() {
+int main()
+{
     Menu menu;
     menu.showMenu();
     playGame(menu.getGameSelected());

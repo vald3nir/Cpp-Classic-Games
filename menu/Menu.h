@@ -10,7 +10,8 @@
 #include "../games/Snake.h"
 #include "../games/Jump.h"
 
-class Menu {
+class Menu
+{
 
 private:
     int index = -1;

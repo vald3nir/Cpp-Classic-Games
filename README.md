@@ -1,9 +1,7 @@
 # Class Games in C++
 
-- Arkanoid
 - Asteroids
-- Bejeweled
-- Doodle_Jump
+- Jump
 - Minesweeper
 - Racing
 - Snake
@@ -53,7 +51,7 @@
     add_executable(GAME main.cpp)
     target_link_libraries (GAME sfml-graphics sfml-window sfml-system)
     
- ### Test Library
+### Test Library
  
     #include <SFML/Graphics.hpp>
 

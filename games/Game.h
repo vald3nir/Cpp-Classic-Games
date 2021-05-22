@@ -3,11 +3,10 @@
 
 #include <SFML/Graphics.hpp>
 
-
-class Game {
+class Game
+{
 public:
     virtual void play() = 0;
 };
 
 #endif
-
