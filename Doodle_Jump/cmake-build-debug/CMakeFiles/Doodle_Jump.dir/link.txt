@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Doodle_Jump.dir/main.cpp.o  -o Doodle_Jump 

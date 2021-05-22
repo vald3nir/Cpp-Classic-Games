@@ -1,3 +1,0 @@
-/../Projetos/C/Games-C/Fifteen/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/../Projetos/C/Games-C/Fifteen/cmake-build-debug/CMakeFiles/edit_cache.dir
-/../Projetos/C/Games-C/Fifteen/cmake-build-debug/CMakeFiles/GAME.dir

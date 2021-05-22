@@ -1,3 +1,0 @@
-/home/vald3nir/Documentos/Projetos/C/Classic-Games-C-Plus-Plus/Bejeweled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/vald3nir/Documentos/Projetos/C/Classic-Games-C-Plus-Plus/Bejeweled/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/vald3nir/Documentos/Projetos/C/Classic-Games-C-Plus-Plus/Bejeweled/cmake-build-debug/CMakeFiles/GAME.dir

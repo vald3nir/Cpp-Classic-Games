@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/tetris.dir/main.cpp.o  -o tetris   -L/../Projetos/C/Games-C/Tetris/SFML_LIBRARY_DIR  -Wl,-rpath,/../Projetos/C/Games-C/Tetris/SFML_LIBRARY_DIR:../SFML-2.5.1/lib ../SFML-2.5.1/lib/libsfml-graphics.so.2.5.1 ../SFML-2.5.1/lib/libsfml-window.so.2.5.1 ../SFML-2.5.1/lib/libsfml-system.so.2.5.1 
