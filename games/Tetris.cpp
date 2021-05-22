@@ -1,7 +1,6 @@
 #include "Tetris.h"
 #include <time.h>
 
-using namespace sf;
 
 const int M = 20;
 const int N = 10;
@@ -39,11 +38,12 @@ bool check()
     return 1;
 };
 
+void Tetris::setup() {
+    createApplication(320, 480, "Tetris");
+}
+
 void Tetris::play()
 {
-    srand(time(0));
-
-    RenderWindow window(VideoMode(320, 480), "Tetris");
 
     Texture t1, t2, t3;
     t1.loadFromFile("../assets/tetris_tiles.png");
@@ -59,17 +59,17 @@ void Tetris::play()
 
     Clock clock;
 
-    while (window.isOpen())
+    while (app->isOpen())
     {
         float time = clock.getElapsedTime().asSeconds();
         clock.restart();
         timer += time;
 
         Event e;
-        while (window.pollEvent(e))
+        while (app->pollEvent(e))
         {
             if (e.type == Event::Closed)
-                window.close();
+                app->close();
 
             if (e.type == Event::KeyPressed)
                 if (e.key.code == Keyboard::Up)
@@ -155,8 +155,8 @@ void Tetris::play()
         delay = 0.3;
 
         /////////draw//////////
-        window.clear(Color::White);
-        window.draw(background);
+        app->clear(Color::White);
+        app->draw(background);
 
         for (int i = 0; i < M; i++)
             for (int j = 0; j < N; j++)
@@ -166,7 +166,7 @@ void Tetris::play()
                 s.setTextureRect(IntRect(field[i][j] * 18, 0, 18, 18));
                 s.setPosition(j * 18, i * 18);
                 s.move(28, 31); //offset
-                window.draw(s);
+                app->draw(s);
             }
 
         for (int i = 0; i < 4; i++)
@@ -174,10 +174,10 @@ void Tetris::play()
             s.setTextureRect(IntRect(colorNum * 18, 0, 18, 18));
             s.setPosition(a[i].x * 18, a[i].y * 18);
             s.move(28, 31); //offset
-            window.draw(s);
+            app->draw(s);
         }
 
-        window.draw(frame);
-        window.display();
+        app->draw(frame);
+        app->display();
     }
 }

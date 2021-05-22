@@ -1,17 +1,12 @@
 #include "Asteroids.h"
-#include <time.h>
-#include <list>
-#include <math.h>
 
-using namespace sf;
 
 const int W = 1200;
 const int H = 800;
 
 float DEGTORAD = 0.017453f;
 
-class Animation
-{
+class Animation {
 public:
     float Frame, speed;
     Sprite sprite;
@@ -19,8 +14,7 @@ public:
 
     Animation() {}
 
-    Animation(Texture &t, int x, int y, int w, int h, int count, float Speed)
-    {
+    Animation(Texture &t, int x, int y, int w, int h, int count, float Speed) {
         Frame = 0;
         speed = Speed;
 
@@ -32,8 +26,7 @@ public:
         sprite.setTextureRect(frames[0]);
     }
 
-    void update()
-    {
+    void update() {
         Frame += speed;
         int n = frames.size();
         if (Frame >= n)
@@ -42,27 +35,23 @@ public:
             sprite.setTextureRect(frames[int(Frame)]);
     }
 
-    bool isEnd()
-    {
+    bool isEnd() {
         return Frame + speed >= frames.size();
     }
 };
 
-class Entity
-{
+class Entity {
 public:
     float x, y, dx, dy, R, angle;
     bool life;
     std::string name;
     Animation anim;
 
-    Entity()
-    {
+    Entity() {
         life = 1;
     }
 
-    void settings(Animation &a, int X, int Y, float Angle = 0, int radius = 1)
-    {
+    void settings(Animation &a, int X, int Y, float Angle = 0, int radius = 1) {
         anim = a;
         x = X;
         y = Y;
@@ -70,36 +59,32 @@ public:
         R = radius;
     }
 
-    virtual void update(){};
+    virtual void update() {};
 
-    void draw(RenderWindow &app)
-    {
+    void draw(RenderWindow *app) {
         anim.sprite.setPosition(x, y);
         anim.sprite.setRotation(angle + 90);
-        app.draw(anim.sprite);
+        app->draw(anim.sprite);
 
         CircleShape circle(R);
         circle.setFillColor(Color(255, 0, 0, 170));
         circle.setPosition(x, y);
         circle.setOrigin(R, R);
-        //app.draw(circle);
+        //app->draw(circle);
     }
 
-    virtual ~Entity(){};
+    virtual ~Entity() {};
 };
 
-class asteroid : public Entity
-{
+class asteroid : public Entity {
 public:
-    asteroid()
-    {
+    asteroid() {
         dx = rand() % 8 - 4;
         dy = rand() % 8 - 4;
         name = "asteroid";
     }
 
-    void update()
-    {
+    void update() {
         x += dx;
         y += dy;
 
@@ -114,16 +99,13 @@ public:
     }
 };
 
-class bullet : public Entity
-{
+class bullet : public Entity {
 public:
-    bullet()
-    {
+    bullet() {
         name = "bullet";
     }
 
-    void update()
-    {
+    void update() {
         dx = cos(angle * DEGTORAD) * 6;
         dy = sin(angle * DEGTORAD) * 6;
         // angle+=rand()%7-3;  /*try this*/
@@ -135,33 +117,26 @@ public:
     }
 };
 
-class player : public Entity
-{
+class player : public Entity {
 public:
     bool thrust;
 
-    player()
-    {
+    player() {
         name = "player";
     }
 
-    void update()
-    {
-        if (thrust)
-        {
+    void update() {
+        if (thrust) {
             dx += cos(angle * DEGTORAD) * 0.2;
             dy += sin(angle * DEGTORAD) * 0.2;
-        }
-        else
-        {
+        } else {
             dx *= 0.99;
             dy *= 0.99;
         }
 
         int maxSpeed = 15;
         float speed = sqrt(dx * dx + dy * dy);
-        if (speed > maxSpeed)
-        {
+        if (speed > maxSpeed) {
             dx *= maxSpeed / speed;
             dy *= maxSpeed / speed;
         }
@@ -180,19 +155,18 @@ public:
     }
 };
 
-bool isCollide(Entity *a, Entity *b)
-{
+bool isCollide(Entity *a, Entity *b) {
     return (b->x - a->x) * (b->x - a->x) +
-               (b->y - a->y) * (b->y - a->y) <
+           (b->y - a->y) * (b->y - a->y) <
            (a->R + b->R) * (a->R + b->R);
 }
 
-void AsteroidsGame::play()
-{
-    srand(time(0));
+void AsteroidsGame::setup() {
+    createApplication(W, H, "Asteroids");
 
-    RenderWindow app(VideoMode(W, H), "Asteroids!");
-    app.setFramerateLimit(60);
+}
+
+void AsteroidsGame::play() {
 
     Texture t1, t2, t3, t4, t5, t6, t7;
     t1.loadFromFile("../assets/asteroids_spaceship.png");
@@ -218,8 +192,7 @@ void AsteroidsGame::play()
 
     std::list<Entity *> entities;
 
-    for (int i = 0; i < 15; i++)
-    {
+    for (int i = 0; i < 15; i++) {
         asteroid *a = new asteroid();
         a->settings(sRock, rand() % W, rand() % H, rand() % 360, 25);
         entities.push_back(a);
@@ -230,17 +203,14 @@ void AsteroidsGame::play()
     entities.push_back(p);
 
     /////main loop/////
-    while (app.isOpen())
-    {
+    while (app->isOpen()) {
         Event event;
-        while (app.pollEvent(event))
-        {
+        while (app->pollEvent(event)) {
             if (event.type == Event::Closed)
-                app.close();
+                app->close();
 
             if (event.type == Event::KeyPressed)
-                if (event.key.code == Keyboard::Space)
-                {
+                if (event.key.code == Keyboard::Space) {
                     bullet *b = new bullet();
                     b->settings(sBullet, p->x, p->y, p->angle, 10);
                     entities.push_back(b);
@@ -257,11 +227,9 @@ void AsteroidsGame::play()
             p->thrust = false;
 
         for (auto a : entities)
-            for (auto b : entities)
-            {
+            for (auto b : entities) {
                 if (a->name == "asteroid" && b->name == "bullet")
-                    if (isCollide(a, b))
-                    {
+                    if (isCollide(a, b)) {
                         a->life = false;
                         b->life = false;
 
@@ -270,8 +238,7 @@ void AsteroidsGame::play()
                         e->name = "explosion";
                         entities.push_back(e);
 
-                        for (int i = 0; i < 2; i++)
-                        {
+                        for (int i = 0; i < 2; i++) {
                             if (a->R == 15)
                                 continue;
                             Entity *e = new asteroid();
@@ -281,8 +248,7 @@ void AsteroidsGame::play()
                     }
 
                 if (a->name == "player" && b->name == "asteroid")
-                    if (isCollide(a, b))
-                    {
+                    if (isCollide(a, b)) {
                         b->life = false;
 
                         Entity *e = new Entity();
@@ -306,33 +272,29 @@ void AsteroidsGame::play()
                 if (e->anim.isEnd())
                     e->life = 0;
 
-        if (rand() % 150 == 0)
-        {
+        if (rand() % 150 == 0) {
             asteroid *a = new asteroid();
             a->settings(sRock, 0, rand() % H, rand() % 360, 25);
             entities.push_back(a);
         }
 
-        for (auto i = entities.begin(); i != entities.end();)
-        {
+        for (auto i = entities.begin(); i != entities.end();) {
             Entity *e = *i;
 
             e->update();
             e->anim.update();
 
-            if (e->life == false)
-            {
+            if (e->life == false) {
                 i = entities.erase(i);
                 delete e;
-            }
-            else
+            } else
                 i++;
         }
 
         //////draw//////
-        app.draw(background);
+        app->draw(background);
         for (auto i : entities)
             i->draw(app);
-        app.display();
+        app->display();
     }
 }

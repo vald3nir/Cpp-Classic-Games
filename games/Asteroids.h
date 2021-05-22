@@ -2,12 +2,12 @@
 #define GAMES_CPP_ASTEROIDS_H
 
 #include "Game.h"
-#include <time.h>
-#include <list>
-#include <math.h>
 
-class AsteroidsGame : public Game
-{
+class AsteroidsGame : public Game {
+
+public:
+
+    void setup() override;
 
     void play() override;
 };

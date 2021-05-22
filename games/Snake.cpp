@@ -1,7 +1,5 @@
 #include "Snake.h"
-#include <time.h>
 
-using namespace sf;
 
 int N = 30;
 int M = 20;
@@ -10,20 +8,16 @@ int w = size * N;
 int h = size * M;
 int dir, num = 4;
 
-struct SnakeForm
-{
+struct SnakeForm {
     int x, y;
 } s[100];
 
-struct Fruit
-{
+struct Fruit {
     int x, y;
 } f;
 
-void Tick()
-{
-    for (int i = num; i > 0; --i)
-    {
+void Tick() {
+    for (int i = num; i > 0; --i) {
         s[i].x = s[i - 1].x;
         s[i].y = s[i - 1].y;
     }
@@ -37,8 +31,7 @@ void Tick()
     if (dir == 3)
         s[0].y -= 1;
 
-    if ((s[0].x == f.x) && (s[0].y == f.y))
-    {
+    if ((s[0].x == f.x) && (s[0].y == f.y)) {
         num++;
         f.x = rand() % N;
         f.y = rand() % M;
@@ -58,12 +51,11 @@ void Tick()
             num = i;
 }
 
-void Snake::play()
-{
-    srand(time(0));
+void Snake::setup() {
+    createApplication(w, h, "Snake");
+}
 
-    RenderWindow window(VideoMode(w, h), "Snake!");
-
+void Snake::play() {
     Texture t1, t2;
     t1.loadFromFile("../assets/snake_white.png");
     t2.loadFromFile("../assets/snake_red.png");
@@ -77,17 +69,15 @@ void Snake::play()
     f.x = 10;
     f.y = 10;
 
-    while (window.isOpen())
-    {
+    while (app->isOpen()) {
         float time = clock.getElapsedTime().asSeconds();
         clock.restart();
         timer += time;
 
         Event e;
-        while (window.pollEvent(e))
-        {
+        while (app->pollEvent(e)) {
             if (e.type == Event::Closed)
-                window.close();
+                app->close();
         }
 
         if (Keyboard::isKeyPressed(Keyboard::Left))
@@ -99,31 +89,28 @@ void Snake::play()
         if (Keyboard::isKeyPressed(Keyboard::Down))
             dir = 0;
 
-        if (timer > delay)
-        {
+        if (timer > delay) {
             timer = 0;
             Tick();
         }
 
         ////// draw  ///////
-        window.clear();
+        app->clear();
 
         for (int i = 0; i < N; i++)
-            for (int j = 0; j < M; j++)
-            {
+            for (int j = 0; j < M; j++) {
                 sprite1.setPosition(i * size, j * size);
-                window.draw(sprite1);
+                app->draw(sprite1);
             }
 
-        for (int i = 0; i < num; i++)
-        {
+        for (int i = 0; i < num; i++) {
             sprite2.setPosition(s[i].x * size, s[i].y * size);
-            window.draw(sprite2);
+            app->draw(sprite2);
         }
 
         sprite2.setPosition(f.x * size, f.y * size);
-        window.draw(sprite2);
+        app->draw(sprite2);
 
-        window.display();
+        app->display();
     }
 }

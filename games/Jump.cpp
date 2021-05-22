@@ -1,19 +1,11 @@
 #include "Jump.h"
-#include <time.h>
 
-using namespace sf;
-
-struct point
-{
-    int x, y;
-};
+void Jump::setup() {
+    createApplication(400,533,"Jump");
+}
 
 void Jump::play()
 {
-    srand(time(0));
-
-    RenderWindow app(VideoMode(400, 533), "Doodle Game!");
-    app.setFramerateLimit(60);
 
     Texture t1, t2, t3;
     t1.loadFromFile("../assets/jump_background.png");
@@ -33,13 +25,13 @@ void Jump::play()
     int x = 100, y = 100, h = 200;
     float dx = 0, dy = 0;
 
-    while (app.isOpen())
+    while (app->isOpen())
     {
         Event e;
-        while (app.pollEvent(e))
+        while (app->pollEvent(e))
         {
             if (e.type == Event::Closed)
-                app.close();
+                app->close();
         }
 
         if (Keyboard::isKeyPressed(Keyboard::Right))
@@ -70,14 +62,14 @@ void Jump::play()
 
         sPers.setPosition(x, y);
 
-        app.draw(sBackground);
-        app.draw(sPers);
+        app->draw(sBackground);
+        app->draw(sPers);
         for (int i = 0; i < 10; i++)
         {
             sPlat.setPosition(plat[i].x, plat[i].y);
-            app.draw(sPlat);
+            app->draw(sPlat);
         }
 
-        app.display();
+        app->display();
     }
 }

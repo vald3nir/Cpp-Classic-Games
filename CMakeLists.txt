@@ -17,5 +17,5 @@ if (SFML_FOUND)
     message(STATUS "SFML_VERSION: ${SFML_VERSION}")
 endif ()
 
-add_executable(Games_Cpp main.cpp games/Racing.cpp games/Racing.h games/Game.h menu/Menu.cpp menu/Menu.h games/Asteroids.cpp games/Asteroids.h games/Minesweeper.cpp games/Minesweeper.h games/Tetris.cpp games/Tetris.h games/Snake.cpp games/Snake.h games/Jump.cpp games/Jump.h)
+add_executable(Games_Cpp main.cpp games/Racing.cpp games/Racing.h games/Game.h menu/Menu.cpp menu/Menu.h games/Asteroids.cpp games/Asteroids.h games/Minesweeper.cpp games/Minesweeper.h games/Tetris.cpp games/Tetris.h games/Snake.cpp games/Snake.h games/Jump.cpp games/Jump.h games/Game.cpp)
 target_link_libraries(Games_Cpp sfml-graphics sfml-window sfml-system)

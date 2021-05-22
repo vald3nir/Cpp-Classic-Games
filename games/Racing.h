@@ -3,12 +3,13 @@
 
 #include "Game.h"
 
-using namespace sf;
 
-class Racing : public Game
-{
+class Racing : public Game {
 
 public:
+
+    void setup() override;
+
     void play() override;
 };
 

@@ -3,10 +3,12 @@
 
 #include "Game.h"
 
-class Snake : public Game
-{
+class Snake : public Game {
 
 public:
+
+    void setup() override;
+
     void play() override;
 };
 

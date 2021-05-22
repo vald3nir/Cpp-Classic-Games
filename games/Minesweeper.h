@@ -3,10 +3,12 @@
 
 #include "Game.h"
 
-class Minesweeper : public Game
-{
+class Minesweeper : public Game {
 
 public:
+
+    void setup() override;
+
     void play() override;
 };
 

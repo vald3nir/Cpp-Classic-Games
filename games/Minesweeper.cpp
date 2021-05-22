@@ -1,15 +1,11 @@
 #include "Minesweeper.h"
-#include <time.h>
 
-using namespace sf;
 
-void Minesweeper::play()
-{
+void Minesweeper::setup() {
+    createApplication(400, 400, "Minesweeper");
+}
 
-    srand(time(0));
-
-    RenderWindow app(VideoMode(400, 400), "Minesweeper!");
-
+void Minesweeper::play() {
     int w = 32;
     int grid[12][12];
     int sgrid[12][12]; //for showing
@@ -19,8 +15,7 @@ void Minesweeper::play()
     Sprite s(t);
 
     for (int i = 1; i <= 10; i++)
-        for (int j = 1; j <= 10; j++)
-        {
+        for (int j = 1; j <= 10; j++) {
             sgrid[i][j] = 10;
             if (rand() % 5 == 0)
                 grid[i][j] = 9;
@@ -29,8 +24,7 @@ void Minesweeper::play()
         }
 
     for (int i = 1; i <= 10; i++)
-        for (int j = 1; j <= 10; j++)
-        {
+        for (int j = 1; j <= 10; j++) {
             int n = 0;
             if (grid[i][j] == 9)
                 continue;
@@ -53,17 +47,15 @@ void Minesweeper::play()
             grid[i][j] = n;
         }
 
-    while (app.isOpen())
-    {
-        Vector2i pos = Mouse::getPosition(app);
+    while (app->isOpen()) {
+        Vector2i pos = Mouse::getPosition(*app);
         int x = pos.x / w;
         int y = pos.y / w;
 
         Event e;
-        while (app.pollEvent(e))
-        {
+        while (app->pollEvent(e)) {
             if (e.type == Event::Closed)
-                app.close();
+                app->close();
 
             if (e.type == Event::MouseButtonPressed)
                 if (e.key.code == Mouse::Left)
@@ -72,18 +64,17 @@ void Minesweeper::play()
                     sgrid[x][y] = 11;
         }
 
-        app.clear(Color::White);
+        app->clear(Color::White);
 
         for (int i = 1; i <= 10; i++)
-            for (int j = 1; j <= 10; j++)
-            {
+            for (int j = 1; j <= 10; j++) {
                 if (sgrid[x][y] == 9)
                     sgrid[i][j] = grid[i][j];
                 s.setTextureRect(IntRect(sgrid[i][j] * w, 0, w, w));
                 s.setPosition(i * w, j * w);
-                app.draw(s);
+                app->draw(s);
             }
 
-        app.display();
+        app->display();
     }
 }
